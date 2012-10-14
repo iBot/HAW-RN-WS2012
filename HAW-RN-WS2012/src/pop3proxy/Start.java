@@ -11,10 +11,14 @@ package pop3proxy;
  */
 public class Start {
 
+    public final String MAIL_CACHE = "mailCache/";
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+        
     }
 }
