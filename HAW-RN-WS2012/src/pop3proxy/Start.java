@@ -1,5 +1,7 @@
 package pop3proxy;
 
+import tcpServerConnection.POP3Server;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -15,9 +17,9 @@ public class Start {
     public static final String MAIL_CACHE = "mailCache/";
     
     // server settings
-    public final int SERVER_PORT = 11000;
-    public final String SERVER_USER = "collectot";
-    public final String SERVER_PASS = "password";
+    public static final int SERVER_PORT = 11000;
+    public static final String SERVER_USER = "collectot";
+    public static final String SERVER_PASS = "password";
     
     /**
      * @param args the command line arguments
@@ -28,5 +30,7 @@ public class Start {
 //        System.out.println(text.matches(regex));
 //        
 //        
+        POP3Server myPOP3Server = new POP3Server(new ServerSettings(SERVER_PORT, MAIL_CACHE, MAIL_CACHE));
+        
     }
 }

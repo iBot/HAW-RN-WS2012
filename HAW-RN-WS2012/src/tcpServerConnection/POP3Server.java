@@ -4,11 +4,9 @@
  */
 package tcpServerConnection;
 
-import pop3proxy.ServerSettings;
 import java.io.*;
 import java.net.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import pop3proxy.ServerSettings;
 
 /**
  *
@@ -57,7 +55,7 @@ public class POP3Server {
             this.socket = sock;
         }
 
-        
+        @Override
         public void run() {
             BufferedReader inFromClient;
             DataOutputStream outToClient;
@@ -93,6 +91,7 @@ public class POP3Server {
                     }
                     //Prüfen ob Server sich in er Authentifizierungs-Phase befindet
                     else if (authState){
+                        System.out.println("Server is in Authentification State");
                         //CAPA
                         if (clientSentence.matches("^CAPA.*")) {
                             outToClient.writeBytes("-ERR");
@@ -103,12 +102,12 @@ public class POP3Server {
                         }
                         //Basis Authentifizierung über Benutzername und Passwort
                         else if (clientSentence.matches("^USER\\s.+$")) {
-                            String username = clientSentence.split("^USER\\s", 1)[1];
+                            String username = clientSentence.split("^USER\\s", 1)[0];
                             if (username.equals(serversettings.getUser())){
                                 outToClient.writeBytes("+OK Are you really "+username+"? Please tell me your password.");
                                 clientSentence = inFromClient.readLine();
                                 if (clientSentence.matches("^PASS\\s.+$")){
-                                    String password = clientSentence.split("^PASS\\s", 1)[1];
+                                    String password = clientSentence.split("^PASS\\s", 1)[0];
                                     if (password.equals(serversettings.getPass())){
                                         outToClient.writeBytes("+OK Hi "+username+"! How can I help you?");
                                         authState= false;
