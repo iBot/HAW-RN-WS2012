@@ -1,3 +1,5 @@
+package exampleCode;
+
 import java.io.*;
 
 import java.net.*;
@@ -7,10 +9,10 @@ import java.net.*;
  *
  * Version 1.0
  * Vorlesung Rechnernetze HAW Hamburg
- * Autor: M. Hübner (nach Kurose/Ross)
+ * Autor: M. Hï¿½bner (nach Kurose/Ross)
  * Zweck: TCP-Server Beispielcode:
  *        Bei Dienstanfrage einen Arbeitsthread erzeugen, der eine Anfrage bearbeitet:
- *        einen String empfangen, in Großbuchstaben konvertieren und zurücksenden
+ *        einen String empfangen, in Groï¿½buchstaben konvertieren und zurï¿½cksenden
  */
 
 /* Server, der Verbindungsanfragen entgegennimmt */
@@ -21,7 +23,7 @@ public class TCPServer {
 		ServerSocket welcomeSocket;  // TCP-Server-Socketklasse
 		Socket connectionSocket;     // TCP-Standard-Socketklasse
 
-		int counter = 0; // Zählt die erzeugten Bearbeitungs-Threads
+		int counter = 0; // Zï¿½hlt die erzeugten Bearbeitungs-Threads
 
 		try {
 			/* Server-Socket erzeugen */
@@ -37,7 +39,7 @@ public class TCPServer {
 				 */
 				connectionSocket = welcomeSocket.accept();
 
-				/* Neuen Arbeits-Thread erzeugen und den Socket übergeben */
+				/* Neuen Arbeits-Thread erzeugen und den Socket ï¿½bergeben */
 				(new TCPServerThread(++counter, connectionSocket)).start();
 			}
 		} catch (IOException e) {
@@ -46,7 +48,7 @@ public class TCPServer {
 	}
 }
 
-/* Arbeitsthread, der eine existierende Socket-Verbindung zur Bearbeitung erhält */
+/* Arbeitsthread, der eine existierende Socket-Verbindung zur Bearbeitung erhï¿½lt */
 class TCPServerThread extends Thread {
 	private int name;
 	private Socket socket;
@@ -89,7 +91,7 @@ class TCPServerThread extends Thread {
 					serviceRequested = false;
 				}
 			}
-			/* Socket-Streams schließen --> Verbindungsabbau */
+			/* Socket-Streams schlieï¿½en --> Verbindungsabbau */
 			socket.close();
 		} catch (IOException e) {
 			System.err.println(e.toString());

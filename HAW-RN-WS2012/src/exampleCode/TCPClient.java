@@ -1,3 +1,5 @@
+package exampleCode;
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -7,10 +9,10 @@ import java.util.Scanner;
  *
  * Version 1.0
  * Vorlesung Rechnernetze HAW Hamburg
- * Autor: M. Hübner (nach Kurose/Ross)
+ * Autor: M. Hï¿½bner (nach Kurose/Ross)
  * Zweck: TCP-Client Beispielcode:
  *        TCP-Verbindung zum Server aufbauen, einen vom Benutzer eingegebenen
- *        String senden, den String in Großbuchstaben empfangen und ausgeben
+ *        String senden, den String in Groï¿½buchstaben empfangen und ausgeben
  */
 
 public class TCPClient {
@@ -21,12 +23,12 @@ public class TCPClient {
 
 	/* Client starten. Ende, wenn quit eingegeben wurde */
 	public void startJob() {
-		/* Variablen für Ein- Ausgabestreams */
+		/* Variablen fï¿½r Ein- Ausgabestreams */
 		Scanner inFromUser;
 		DataOutputStream outToServer;
 		BufferedReader inFromServer;
 		
-		String sentence; // vom User übergebener String
+		String sentence; // vom User ï¿½bergebener String
 		String modifiedSentence; // vom Server modifizierter String
 		boolean serviceRequested = true; // Client beenden?
 
@@ -60,7 +62,7 @@ public class TCPClient {
 					serviceRequested = false;
 				}
 			}
-			/* Socket-Streams schließen --> Verbindungsabbau */
+			/* Socket-Streams schlieï¿½en --> Verbindungsabbau */
 			clientSocket.close();
 		} catch (IOException e) {
 			System.err.println(e.toString());
