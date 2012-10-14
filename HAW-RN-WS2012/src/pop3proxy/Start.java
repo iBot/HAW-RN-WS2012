@@ -11,14 +11,22 @@ package pop3proxy;
  */
 public class Start {
 
-    public final String MAIL_CACHE = "mailCache/";
+    // common  settings
+    public static final String MAIL_CACHE = "mailCache/";
+    
+    // server settings
+    public final int SERVER_PORT = 11000;
+    public final String SERVER_USER = "collectot";
+    public final String SERVER_PASS = "password";
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        
-        
+//        String text = "CAPA vfjf";
+//        String regex = "^CAPA.*";
+//        System.out.println(text.matches(regex));
+//        
+//        
     }
 }
